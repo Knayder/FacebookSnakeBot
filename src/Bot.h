@@ -20,6 +20,7 @@ private:
 	//SFML
 	static sf::RenderWindow window;
 	static sf::Clock fpsClock;
+	static sf::Vector2i headPosition;
 
 	//WinAPI
 	static HWND hwnd;

@@ -5,9 +5,11 @@
 sf::RenderWindow Bot::window;
 sf::Clock Bot::fpsClock;
 float Bot::tileSize;
+sf::Vector2i Bot::headPosition;
 
 HWND Bot::hwnd;
 int Bot::init() {
+	headPosition = { 0,0 };
 	/*Find window*/
 	hwnd = FindWindow(NULL, "Facebook - Google Chrome");
 	if (hwnd == NULL)
@@ -54,9 +56,9 @@ int Bot::init() {
 				for (int x = 0; x < 17; x++) {
 					shape.setPosition(500 + x*tileSize, y*tileSize);
 
-					if (map[y * 17 + x] == 3)
-						shape.setFillColor(sf::Color::Blue);
-					else if (map[y * 17 + x] == 2)
+					//if (map[y * 17 + x] == 3)
+						//shape.setFillColor(sf::Color::Blue);
+					if (map[y * 17 + x] == 2)
 						shape.setFillColor(sf::Color::Red);
 					else if (map[y * 17 + x] == 1)
 						shape.setFillColor(sf::Color::Black);
@@ -66,8 +68,9 @@ int Bot::init() {
 					
 				}
 			}
-
-			
+			shape.setPosition(500 + headPosition.x*tileSize, headPosition.y*tileSize);
+			shape.setFillColor(sf::Color::Blue);
+			window.draw(shape);
 			
 			
 
@@ -132,8 +135,10 @@ void Bot::loadLiveMapArray(const ImageSource & raw, int * map){
 					}
 					decent /= tileSize*tileSize;
 					if (decent < 160) {
-						if (*temp == 0)
+						if (*temp == 0) {
 							*temp = 3;
+							headPosition = { x,y };
+						}
 						else
 							*temp = 2;
 
