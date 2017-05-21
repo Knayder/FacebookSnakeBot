@@ -15,6 +15,7 @@ public:
 	static int init();
 
 
+
 private:
 	//SFML
 	static sf::RenderWindow window;
@@ -28,4 +29,6 @@ private:
 
 	/*************/
 	static void input();
+	static void loadMapArray(const ImageSource &raw, int *map);
+	static void loadLiveMapArray(const ImageSource &raw, int * map);
 };

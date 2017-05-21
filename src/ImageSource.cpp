@@ -5,24 +5,24 @@ ImageSource::~ImageSource(){
 	delete[] colors;
 }
 
-RGBQUAD * ImageSource::getPixels()
+RGBQUAD * ImageSource::getPixels() const
 {
 	return pixels;
 }
 
-sf::Color * ImageSource::getColors()
+sf::Color * ImageSource::getColors() const
 {
 	return colors;
 }
 
 
 
-sf::Color ImageSource::getColor(const int & x, const int & y)
+sf::Color ImageSource::getColor(const int & x, const int & y) const
 {
 	return getColor(y*rect.width + x);
 }
 
-sf::Color ImageSource::getColor(const int & number)
+sf::Color ImageSource::getColor(const int & number) const
 {
 	return colors[number];
 }

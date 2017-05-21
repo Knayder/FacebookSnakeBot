@@ -9,12 +9,12 @@ public:
 	~ImageSource();
 
 	/*Return pixels. Don't delete this pointer!*/
-	RGBQUAD * getPixels();
+	RGBQUAD * getPixels() const;
 	/*Return colors. Don't delete this pointer!*/
-	sf::Color * getColors();
+	sf::Color * getColors() const;
 
-	sf::Color getColor(const int &x, const int &y);
-	sf::Color getColor(const int &number);
+	sf::Color getColor(const int &x, const int &y) const;
+	sf::Color getColor(const int &number) const;
 
 	/*Update pixels*/
 	void update();
