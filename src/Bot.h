@@ -4,6 +4,7 @@
 #include <Windows.h>
 #include <iostream>
 #include "ImageSource.h"
+#include "Pattern.h"
 
 
 class Bot final {
@@ -26,10 +27,13 @@ private:
 	static HWND hwnd;
 
 	//Various
-	static float tileSize;
+	static sf::Vector2f tileSize;
+	static sf::Vector2i size;
+	static sf::Vector2i tilesAmount;
 
 	/*************/
 	static void input();
 	static void loadMapArray(const ImageSource &raw, int *map);
 	static void loadLiveMapArray(const ImageSource &raw, int * map);
+	static void clickButton(const int &key);
 };
